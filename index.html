@@ -275,7 +275,7 @@
           .attr("stroke", "steelblue")
           .attr("stroke-linejoin", "round")
           .attr("stroke-linecap", "round")
-          .attr("stroke-width", 1.5);
+          .attr("stroke-width", 2);
 
       function updateScales(data) {
           // Create scales
@@ -294,8 +294,10 @@
           return (line = d3
               .line()
               .x((dataPoint) => xScale(dataPoint[0]))
-              .y((dataPoint) => yScale(dataPoint[1])));
+              .y((dataPoint) => yScale(dataPoint[1])))
+              .curve(d3.curveCatmullRom.alpha(0.5));
       }
+
 
       function updateAxes(data, chart, xScale, yScale) {
           chart
@@ -314,7 +316,7 @@
           const pathLength = updatedPath.node().getTotalLength();
           // D3 provides lots of transition options, have a play around here:
           // https://github.com/d3/d3-transition
-          const transitionPath = d3.transition().ease(d3.easeSin).duration(10000);
+          const transitionPath = d3.transition().ease(d3.easeSin).duration(3500);
           updatedPath
               .attr("stroke-dashoffset", pathLength)
               .attr("stroke-dasharray", pathLength)
@@ -330,14 +332,7 @@
       }
 
       updateChart(data);
-      // // Update chart when button is clicked
-      // d3.select("button").on("click", () => {
-      //   // Create new fake data
-      //   const newData = data.map((row) => {
-      //     return { ...row, [1]: row[1] * Math.random() };
-      //   });
-      //   updateChart(newData);
-      // });
+
 
   </script>
 </body>

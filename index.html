@@ -43,7 +43,7 @@
 <body>
   <div id="title"> <h2>Number of resolved claims</h2></div>
   <div id="chart"></div>
-  <div id="learn_more"><a href="javascript:void(0);">Learn more</a></div>
+  <div id="learn_more"><a href="https://app.superblocks.com/applications/abadd29c-b210-4b91-bfdd-266206b71e85/pages/ba1560cb-a834-4394-9e58-6e0b0a0f0c64?environment=production" target="_top">Learn more</a></div>
   <script type="text/javascript">
       // Fake data
       var rawData = [
@@ -360,20 +360,6 @@
       }
 
       updateChart(data);
-
-
-      function redirectFromIframe() {
-          window.top.open(
-              "https://app.superblocks.com/applications/abadd29c-b210-4b91-bfdd-266206b71e85/pages/ba1560cb-a834-4394-9e58-6e0b0a0f0c64?environment=production",
-              '_blank' // <- This is what makes it open in a new window.
-          );
-         // window.top.location.href = "https://app.superblocks.com/applications/abadd29c-b210-4b91-bfdd-266206b71e85/pages/ba1560cb-a834-4394-9e58-6e0b0a0f0c64?environment=production"
-      }
-
-      // We need redirect from iframe so add listener here
-      let learn_moreLink = document.getElementById("learn_more");
-      learn_moreLink.addEventListener("click", redirectFromIframe, false);
-
 
   </script>
 </body>
